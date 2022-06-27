@@ -39,16 +39,13 @@ var last_position_of_x, last_position_of_y;
         current_position_of_mouse_x, current_position_of_mouse_y
         to end creation of line
         */
-        
+        ctx.moveTo(last_position_of_x, last_position_of_y);
+        ctx.lineTo(current_position_of_mouse_x, current_position_of_mouse_y);
         ctx.stroke();
         }
-        function moveTo()
-        last_position_of_x = current_position_of_mouse_x; 
-        last_position_of_y = current_position_of_mouse_y;
-
-        function lineTo()
-        current_position_of_mouse_x = last_position_of_x
-        current_position_of_mouse_y = last_position_of_y
+        
+        last_position_of_x=current_position_of_mouse_x;
+        last_position_of_y=current_position_of_mouse_y;
 
     }
 
@@ -75,7 +72,9 @@ and assign it to new_width
 Decrease 300 from screen.height
 and assign it to new_height
 */
-
+width=screen.width;
+new_width=screen.width-70;
+new_height=screen.height-300;
 if(width < 992)
 {
     document.getElementById("myCanvas").width = new_width;
@@ -115,14 +114,11 @@ function my_touchmove(e)
         , 
         to end creation of line    
     */
+        ctx.moveTo(last_position_of_touch_x, last_position_of_touch_y);
+        ctx.lineTo(current_position_of_touch_x, current_position_of_touch_y);
     ctx.stroke();
-    function moveTo()
-    last_position_of_touch_x = current_position_of_touch_x; 
-    last_position_of_touch_y = current_position_of_touch_y;
-    
-    function lineTo()
-    current_position_of_mouse_x = last_position_of_touch_x
-    current_position_of_mouse_y = last_position_of_touch_y
+    last_position_of_touch_x=current_position_of_touch_x;
+    last_position_of_touch_y=current_position_of_touch_y;
 }
 
 //Additional Activity
